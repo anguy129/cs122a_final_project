@@ -99,18 +99,6 @@ void changeUser(char src[]) {
 	for(int i = 0; i < 4; i++) {
 		eeprom_write_byte((uint8_t*)46+i, src[i]);
 		userpass[i] = eeprom_read_byte((uint8_t*)46+i);
-		LCD_ClearScreen();
-		_delay_ms(10000);
-		//LCD_WriteData(userpass[i]);
-		LCD_WriteData(userpass[5]);
-		//_delay_ms(5000);
-		LCD_WriteData(userpass[6]);
-		//_delay_ms(5000);
-		LCD_WriteData(userpass[7]);
-		//_delay_ms(5000);
-		LCD_WriteData(userpass[8]);
-		_delay_ms(10000);
-		LCD_ClearScreen();
 	}
 }
 void changePass(char* src) {
@@ -321,7 +309,6 @@ int tick_Menu(int menu_state) {
 				LCD_WriteData(userpass[2]);
 				//_delay_ms(5000);
 				LCD_WriteData(userpass[3]);
-				LCD_DisplayString(6, userpass);
 				cursor = 22;
 				LCD_Cursor(cursor);
 				/*LCD_DisplayString(1, "Attempt:        Real:");										//test user results
